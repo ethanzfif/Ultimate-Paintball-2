@@ -52,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
 
         // Jump if on ground
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        //controller set to left bumper
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown("joystick button 4")) && isGrounded)
         {
             controller.slopeLimit = 100.0f;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
